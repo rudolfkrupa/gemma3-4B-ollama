@@ -14,7 +14,7 @@ ENV OLLAMA_DEBUG false
 ENV OLLAMA_KEEP_ALIVE 100
 
 # Store the model weights in the container image
-ENV MODEL gemma3:4B
+ENV MODEL gemma3:12b-it-qat
 RUN ollama serve & sleep 5 && ollama pull $MODEL
 
 # Start Ollama
