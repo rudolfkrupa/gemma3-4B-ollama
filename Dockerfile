@@ -14,8 +14,10 @@ ENV OLLAMA_DEBUG false
 ENV OLLAMA_KEEP_ALIVE 100
 
 # Store the model weights in the container image
-ENV MODEL gemma3:12b-it-qat
-RUN ollama serve & sleep 5 && ollama pull $MODEL
+ENV MODEL1 gemma3:4b-it-qat
+ENV MODEL2 gemma3:12b-it-qat
+ENV MODEL3 nomic-embed-text
+RUN ollama serve & sleep 5 && ollama pull $MODEL1 && ollama pull $MODEL2 && ollama pull $MODEL3
 
 # Start Ollama
 ENTRYPOINT ["ollama", "serve"]
